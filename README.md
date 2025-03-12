@@ -126,7 +126,7 @@ python -m broker_simulation.main --mode conversation --config config/default.jso
 
 ## 与金融市场模拟器集成
 
-本系统可以作为独立项目运行，也可以与金融市场模拟器（[https://github.com/u3588064/WallStreet](WallStreet) ）集成，作为市场中的一个参与者。集成方式如下：
+本系统可以作为独立项目运行，也可以与金融市场模拟器（[https://github.com/u3588064/WallStreet] ）集成，作为市场中的一个参与者。集成方式如下：
 
 ```bash
 python -m broker_simulation.main --market-integration path/to/market_simulation.py --config config/default.json
