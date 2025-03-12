@@ -1,0 +1,178 @@
+{
+  "name": "天天证券",
+  "description": "一家综合性投资银行/券商，提供全方位的金融服务，包括投资银行、销售交易、研究、财富管理和资产管理等业务。",
+  "llm_config": {
+    "config_list": [
+      {
+        "model": "gpt-4-turbo",
+        "api_key": "YOUR_API_KEY"
+      }
+    ],
+    "temperature": 0.7,
+    "request_timeout": 120
+  },
+  "human_input_mode": "NEVER",
+  "max_consecutive_auto_reply": 10,
+  "broker_config": {
+    "initial_balance": 5000000000.0,
+    "risk_tolerance": 0.6,
+    "market_share": 0.08,
+    "reputation": 0.75
+  },
+  "integration_config": {
+    "connections": {
+      "agent_types": ["financial_institutions", "corporate", "individual_investor", "regulatory"]
+    }
+  },
+  "simulation": {
+    "num_cycles": 5,
+    "scenarios": [
+      {
+        "name": "IPO承销场景",
+        "type": "investment_banking",
+        "description": "处理一家科技公司的IPO承销业务",
+        "events": [
+          {
+            "type": "client_request",
+            "request_type": "investment_banking",
+            "description": "科技公司IPO咨询",
+            "content": "我们是一家人工智能科技公司，计划在未来6个月内进行IPO，希望贵公司能够担任我们的主承销商。",
+            "sender": {
+              "name": "智能科技有限公司",
+              "type": "corporate",
+              "industry": "technology"
+            },
+            "data": {
+              "company_valuation": 5000000000,
+              "annual_revenue": 800000000,
+              "growth_rate": 0.35,
+              "profit_margin": 0.22
+            }
+          },
+          {
+            "type": "market_update",
+            "description": "市场对科技股IPO反应积极",
+            "content": "近期市场对科技股IPO反应积极，多家科技公司IPO首日涨幅超过30%。",
+            "data": {
+              "securities": [
+                {
+                  "symbol": "TECH1",
+                  "price": 68.5,
+                  "price_change": 0.32,
+                  "volume_change": 2.5
+                },
+                {
+                  "symbol": "TECH2",
+                  "price": 42.3,
+                  "price_change": 0.28,
+                  "volume_change": 1.8
+                }
+              ],
+              "market_sentiment": "positive",
+              "sector_performance": {
+                "technology": 0.15,
+                "finance": 0.05,
+                "healthcare": 0.08
+              }
+            }
+          },
+          {
+            "type": "regulatory_announcement",
+            "description": "监管机构发布新的IPO审核规定",
+            "content": "证监会发布新的IPO审核规定，加强对科技企业财务状况和技术创新能力的审核。",
+            "data": {
+              "effective_date": "2023-07-01",
+              "key_changes": [
+                "加强财务真实性审核",
+                "重点关注研发投入与技术创新",
+                "提高信息披露要求"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "交易策略执行场景",
+        "type": "sales_trading",
+        "description": "执行大额股票交易策略",
+        "events": [
+          {
+            "type": "client_request",
+            "request_type": "trading",
+            "description": "机构客户大额交易请求",
+            "content": "我们计划在未来三天内买入约500万股中国石油，请帮我们设计一个交易策略，尽量减小市场冲击。",
+            "sender": {
+              "name": "远景基金管理公司",
+              "type": "financial_institutions",
+              "aum": 50000000000
+            },
+            "data": {
+              "symbol": "601857",
+              "quantity": 5000000,
+              "side": "buy",
+              "time_constraint": "3 days",
+              "price_constraint": "VWAP + 0.5%"
+            }
+          },
+          {
+            "type": "market_update",
+            "description": "能源板块股价波动",
+            "content": "受国际油价上涨影响，能源板块股价普遍上涨。",
+            "data": {
+              "securities": [
+                {
+                  "symbol": "601857",
+                  "price": 6.25,
+                  "price_change": 0.045,
+                  "volume_change": 0.8
+                },
+                {
+                  "symbol": "600028",
+                  "price": 5.12,
+                  "price_change": 0.038,
+                  "volume_change": 0.6
+                }
+              ],
+              "market_sentiment": "positive",
+              "sector_performance": {
+                "energy": 0.042,
+                "finance": 0.01,
+                "technology": -0.015
+              }
+            }
+          },
+          {
+            "type": "trading_opportunity",
+            "description": "能源股交易机会",
+            "content": "市场流动性较好，是执行大额交易的良好时机。",
+            "data": {
+              "symbol": "601857",
+              "current_price": 6.28,
+              "bid_ask_spread": 0.02,
+              "market_depth": {
+                "bids": [
+                  {"price": 6.27, "quantity": 250000},
+                  {"price": 6.26, "quantity": 320000},
+                  {"price": 6.25, "quantity": 450000}
+                ],
+                "asks": [
+                  {"price": 6.29, "quantity": 280000},
+                  {"price": 6.30, "quantity": 350000},
+                  {"price": 6.31, "quantity": 400000}
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "conversation": {
+    "user_proxy": {
+      "name": "潜在客户",
+      "human_input_mode": "ALWAYS",
+      "max_consecutive_auto_reply": 0
+    },
+    "initial_message": "你好，我是一家中型企业的财务总监，我们公司正在考虑进行一次债券发行，想了解一下贵公司在这方面的服务和经验。"
+  }
+} 
